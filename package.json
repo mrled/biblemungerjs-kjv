@@ -1,0 +1,37 @@
+{
+  "name": "@mrled/biblemungerjs-kjv",
+  "version": "1.0.6",
+  "description": "KJV for biblemungerjs",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist || true",
+    "translate": "./translate.js --kjvxml kjv.xml xml2db --dbfile dist/kjv.sqlite --tablename kjv",
+    "copy": "cp package.json package-lock.json readme.md dist/",
+    "build": "tsc",
+    "package": "npm run clean && npm run build && npm run translate && npm run copy",
+    "push": "cd dist && npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrled/biblemungerjs-kjv.git"
+  },
+  "author": "Micah R Ledbetter",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/mrled/biblemungerjs-kjv/issues"
+  },
+  "homepage": "https://github.com/mrled/biblemungerjs-kjv#readme",
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "sqlite": "^4.0.19",
+    "sqlite3": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3",
+    "xml-js": "^1.6.11"
+  }
+}
